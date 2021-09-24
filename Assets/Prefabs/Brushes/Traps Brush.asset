@@ -38,7 +38,11 @@ MonoBehaviour:
   m_FloodFillContiguousOnly: 1
   m_Prefabs:
   - {fileID: 3977235424662630029, guid: 4cd03a2529d4fba47a650b395f3879e0, type: 3}
+  - {fileID: 2081147959948848807, guid: d911c0f53f03d5a4ea83adc466e4b80f, type: 3}
+  - {fileID: 2081147959948848807, guid: e302aa804fea8804095c59c646a8dde0, type: 3}
+  - {fileID: 2081147959948848807, guid: 5f63ccecfeb56bb48ab28afa57a00211, type: 3}
+  - {fileID: 2081147959948848807, guid: 4bda11d1bf6a1514dbd2563609433c86, type: 3}
   m_PerlinScale: 0.5
   m_Z: 0
-  prefabToTPrint: 0
-  randomPrefab: 1
+  prefabToTPrint: 1
+  randomPrefab: 0

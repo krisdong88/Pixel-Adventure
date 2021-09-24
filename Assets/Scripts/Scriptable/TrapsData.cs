@@ -23,4 +23,5 @@ public class TrapsData : ScriptableObject
     [Header("Platform")]
     public float platformSpeed = 10f;
     public float platformWaitTime = 1f;
+    public float fallingPlatformWaitTime = 0.5f;
 }

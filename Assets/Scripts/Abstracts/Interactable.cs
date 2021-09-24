@@ -38,7 +38,7 @@ public abstract class Interactable : MonoBehaviour,IInteractable
     public virtual void Interact(Collision2D other)
     {
         playerRB = other.gameObject.GetComponent<Rigidbody2D>();
-        StartCoroutine(cameraShake.Shake(.1f,.1f));
+        // StartCoroutine(cameraShake.Shake(.1f,.1f));
     }
 
     public virtual bool CheckInteraction(Vector2 interactor)

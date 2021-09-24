@@ -14,6 +14,7 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Player")
         {
+            
             this.GetComponent<Animator>().Play("Hit");
             PlayerRB = other.gameObject.GetComponent<Rigidbody2D>();
             PlayerRB.velocity = new Vector2(PlayerRB.velocity.x,0);

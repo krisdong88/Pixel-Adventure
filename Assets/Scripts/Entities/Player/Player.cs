@@ -52,6 +52,9 @@ public class Player : Entity
     {
         Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
+
+        if(transform.position.y < -10)
+            Destroy(gameObject);
     }
 
     private void FixedUpdate()
