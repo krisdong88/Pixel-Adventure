@@ -42,7 +42,11 @@ MonoBehaviour:
   - {fileID: 2081147959948848807, guid: e302aa804fea8804095c59c646a8dde0, type: 3}
   - {fileID: 2081147959948848807, guid: 5f63ccecfeb56bb48ab28afa57a00211, type: 3}
   - {fileID: 2081147959948848807, guid: 4bda11d1bf6a1514dbd2563609433c86, type: 3}
+  - {fileID: 7731915784945190588, guid: ba8bc83c1a97eab448831615135cb382, type: 3}
+  - {fileID: 7731915784945190588, guid: 1fb5751fb905d5740bd4950dba05dd26, type: 3}
+  - {fileID: 7731915784945190588, guid: f3b93d7c5e48f48418ec532412532f36, type: 3}
+  - {fileID: 7731915784945190588, guid: 9ea621c8cd717d54c8f65a4d3065214a, type: 3}
   m_PerlinScale: 0.5
   m_Z: 0
-  prefabToTPrint: 1
+  prefabToTPrint: 8
   randomPrefab: 0

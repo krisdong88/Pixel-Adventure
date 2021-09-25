@@ -9,7 +9,11 @@ public class Fruit : MonoBehaviour
     private void Start() 
     {
         if(!Istantiated)
+        {
             GetComponent<Rigidbody2D>().isKinematic = true;
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+            
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

@@ -25,3 +25,6 @@ MonoBehaviour:
   platformWaitTime: 1
   fallingPlatformWaitTime: 0.5
   sawSpeed: 5
+  fireWaitTime: 1
+  fireOnTime: 2
+  RockHeadVelocity: 0.4
