@@ -21,7 +21,10 @@ public class TrapsData : ScriptableObject
     public float ArrowForce = 1300f;
 
     [Header("Platform")]
-    public float platformSpeed = 10f;
+    public float platformSpeed = 0.1f;
     public float platformWaitTime = 1f;
     public float fallingPlatformWaitTime = 0.5f;
+
+    [Header("Saw")]
+    public float sawSpeed = .1f;
 }

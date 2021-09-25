@@ -7,12 +7,13 @@ public class Spikes : MonoBehaviour
 
     private CameraShake cameraShake;
     private GameObject player;
-    private void Awake() 
+
+    protected virtual void Awake() 
     {
         cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    protected void OnCollisionEnter2D(Collision2D other) 
     {
         StartCoroutine(cameraShake.Shake(.1f,.1f));
         other.gameObject.GetComponent<Collider2D>().enabled = false;

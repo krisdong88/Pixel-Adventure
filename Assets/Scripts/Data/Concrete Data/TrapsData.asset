@@ -22,3 +22,6 @@ MonoBehaviour:
   strongFanForce: 90
   ArrowForce: 1350
   platformSpeed: 0.1
+  platformWaitTime: 1
+  fallingPlatformWaitTime: 0.5
+  sawSpeed: 5
