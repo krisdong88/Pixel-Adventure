@@ -28,3 +28,4 @@ MonoBehaviour:
   fireWaitTime: 1
   fireOnTime: 2
   RockHeadVelocity: 0.4
+  SpikeHeadVelocity: 0.35

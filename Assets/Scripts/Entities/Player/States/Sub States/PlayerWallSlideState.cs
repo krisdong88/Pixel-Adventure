@@ -15,7 +15,7 @@ public class PlayerWallSlideState : PlayerTouchingWallState
         if(isExitingState)
             return;
             
-        core.Movement.SetVelocityY(-playerData.wallSlideVelocity);
+        core.Movement.SetVelocityY(-playerData.wallSlideVelocity * core.Movement.surfaceFriction);
 
         player.Anim.SetFloat("yVelocity",core.Movement.CurrentVelocity.y);
 

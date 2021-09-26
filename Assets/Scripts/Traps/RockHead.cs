@@ -9,6 +9,7 @@ public class RockHead : MonoBehaviour
     
     [SerializeField] private TrapsData data;
     [SerializeField] private bool Linear;
+    [SerializeField] private float Speed;
     [SerializeField] private Vector2 direction;
     [SerializeField] private LayerMask WhatIsGround;
     private CameraShake cameraShake;
@@ -21,10 +22,15 @@ public class RockHead : MonoBehaviour
     private bool waiting;
     private float velocity;
 
+    
+
     private void Awake() 
     {
         Anim = GetComponent<Animator>();
         cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
+
+        if(Speed == 0)
+            Speed = data.RockHeadVelocity;
     }
 
 
@@ -44,11 +50,11 @@ public class RockHead : MonoBehaviour
         {
             
             transform.position = new Vector3(hit.point.x-direction.x,hit.point.y-direction.y);
-            ChangeDirection();
-            Anim.SetFloat("H",-direction.x);
-            Anim.SetFloat("V",-direction.y);
+           Anim.SetFloat("H",direction.x);
+            Anim.SetFloat("V",direction.y);
             Anim.Play("Hit");
-            StartCoroutine(cameraShake.Shake(.1f,.1f));
+            ChangeDirection();
+            StartCoroutine(cameraShake.Shake());
             waiting = true;
 
 
@@ -62,10 +68,10 @@ public class RockHead : MonoBehaviour
         if(!waiting)
             transform.Translate(direction*velocity);
         
-        if(velocity <data.RockHeadVelocity)
+        if(velocity <Speed)
             velocity+=0.02f;
         else
-            velocity = data.RockHeadVelocity;
+            velocity = Speed;
     }
 
     private void ChangeDirection()

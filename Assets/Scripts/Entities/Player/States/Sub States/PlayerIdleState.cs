@@ -17,7 +17,10 @@ public class PlayerIdleState : PlayerGroundedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        core.Movement.SetVelocityX(0f);
+        //core.Movement.SetVelocityX(0f);
+
+        if(core.Movement.CurrentVelocity.x>playerData.movementVelocity)
+            core.Movement.SetVelocityX(playerData.movementVelocity);
         
         if (!isExitingState)
         {

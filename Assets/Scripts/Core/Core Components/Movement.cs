@@ -13,6 +13,8 @@ public class Movement : CoreComponent
 
     public Vector2 CurrentVelocity { get; private set; }
 
+    public float surfaceFriction { get; private set; }
+
     private Vector2 workspace;
 
     private Vector2 VelZero = Vector2.zero;
@@ -90,6 +92,11 @@ public class Movement : CoreComponent
         workspace.Set(direction.x*target,direction.y);
         RB.velocity = new Vector2(RB.velocity.x,0);
         RB.AddForce(workspace * jumpForce);
+    }
+
+    public void SetFriction(float value)
+    {
+        surfaceFriction = value;
     }
 
     public void CheckIfShouldFlip(int xInput)

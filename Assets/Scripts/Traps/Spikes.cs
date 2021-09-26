@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
 
-    private CameraShake cameraShake;
+    protected CameraShake cameraShake;
     private GameObject player;
 
     protected virtual void Awake() 
@@ -15,7 +15,7 @@ public class Spikes : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D other) 
     {
-        StartCoroutine(cameraShake.Shake(.1f,.1f));
+        StartCoroutine(cameraShake.Shake());
         other.gameObject.GetComponent<Collider2D>().enabled = false;
         other.gameObject.GetComponent<Player>().enabled = false;
         Destroy(other.transform.GetChild(0).gameObject);

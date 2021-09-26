@@ -32,6 +32,7 @@ public class TrapsData : ScriptableObject
     public float fireWaitTime = .5f;
     public float fireOnTime = .5f;
 
-    [Header("Rock Head")]
+    [Header("Heads")]
     public float RockHeadVelocity =10f;
+    public float SpikeHeadVelocity =10f;
 }
