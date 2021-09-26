@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391672656823282392}
   - component: {fileID: 8038486340179654648}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GroundCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

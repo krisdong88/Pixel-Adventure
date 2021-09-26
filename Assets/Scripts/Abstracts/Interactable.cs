@@ -7,8 +7,8 @@ public abstract class Interactable : MonoBehaviour,IInteractable
     private Collider2D collider2d;
     protected Rigidbody2D playerRB;
 
-    private CameraShake cameraShake;
-
+    protected CameraShake cameraShake;
+    protected bool shake;
     private Vector2 center;
 
     private float width;
@@ -38,7 +38,8 @@ public abstract class Interactable : MonoBehaviour,IInteractable
     public virtual void Interact(Collision2D other)
     {
         playerRB = other.gameObject.GetComponent<Rigidbody2D>();
-        // StartCoroutine(cameraShake.Shake(.1f,.1f));
+        if(shake)
+            StartCoroutine(cameraShake.Shake());
     }
 
     public virtual bool CheckInteraction(Vector2 interactor)

@@ -7,6 +7,7 @@ public class Player : Entity
 {    
 
     public PlayerInputHandler InputHandler { get; private set; }
+    private ParticleSystem dustPS;
 
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
@@ -17,7 +18,6 @@ public class Player : Entity
     // public PlayerWallGrabState WallGrabState { get; private set; }
     // public PlayerWallClimbState WallClimbState { get; private set; }
     public PlayerWallJumpState WallJumpState { get; private set; }
-    // public PlayerLedgeClimbState LedgeClimbState { get; private set; }
     // public PlayerDashState DashState { get; private set; }
 
     public override void Awake()
@@ -42,6 +42,7 @@ public class Player : Entity
     private void Start()
     {
         InputHandler = GetComponent<PlayerInputHandler>();
+        dustPS = GetComponentInChildren<ParticleSystem>();
         //Inventory = GetComponent<PlayerInventory>();
 
         //AttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
@@ -60,5 +61,10 @@ public class Player : Entity
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    public void CreateDust()
+    {
+        dustPS.Play();
     }
 }

@@ -26,6 +26,7 @@ public class Platform : Interactable
 
     public override void Interact(Collision2D other)
     {
+        shake =true;
         base.Interact(other);
         goingToP1 = true;
         other.transform.parent.parent = transform;

@@ -34,7 +34,7 @@ public class FallingPlatform : Interactable
 
     public override bool CheckInteraction(Vector2 interactor)
     {
-        return interactor.y >transform.position.y;
+        return interactor.y >transform.position.y+0.5f;
     }
 
     public override void Interact(Collision2D other)

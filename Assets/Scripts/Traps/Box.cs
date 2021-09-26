@@ -22,7 +22,7 @@ public class Box : Interactable,IBreakable
         summonedFruits = new List<GameObject>();
         for (int i = 0; i < friutsNum; i++)
         {
-            GameObject fruit = Instantiate(fruits[Random.Range(0,8)],transform.localPosition,Quaternion.identity,transform.parent.transform);
+            GameObject fruit = Instantiate(fruits[Random.Range(0,8)],transform.position,Quaternion.identity,transform.parent.transform);
             fruit.GetComponent<Fruit>().SetIstantiated();
             summonedFruits.Add(fruit);
         }
@@ -35,12 +35,13 @@ public class Box : Interactable,IBreakable
             part.GetComponent<Rigidbody2D>().AddTorque(Random.Range(0,50)*Random.Range(-1,1));
         }
         for(int i=0;i<summonedFruits.Count;i++)
-            summonedFruits[i].GetComponent<Rigidbody2D>().AddForce(Vector2.right*Random.Range(-1,1)*Random.Range(300,800));
+            summonedFruits[i].GetComponent<Rigidbody2D>().AddForce(Vector2.right*Random.Range(-1,1)*Random.Range(300,500));
     
     }
 
     public override void Interact(Collision2D other)
     {
+        shake = true;
         base.Interact(other);
         
         playerRB = other.gameObject.GetComponent<Rigidbody2D>();
