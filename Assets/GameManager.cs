@@ -5,27 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static int CurrentScene;
+    private int CurrentScene;
+    private Animator[] animators;
 
 
-    private static void Awake() 
+    private void Awake() 
     {
         CurrentScene = SceneManager.GetActiveScene().buildIndex;
+        animators = GetComponentsInChildren<Animator>();
     }
 
 
-    public static void ReloadScene()
+    public void ReloadScene()
     {
-        SceneManager.LoadScene(CurrentScene);
+        StartCoroutine(LoadScene(CurrentScene));
     }
 
-    public static void NextScene()
+    public void NextScene()
     {
-        SceneManager.LoadScene(++CurrentScene);
+        StartCoroutine(LoadScene(CurrentScene+1));
     }
 
-    public static void PreviousScene()
+    public void PreviousScene()
     {
-        SceneManager.LoadScene(--CurrentScene);
+        StartCoroutine(LoadScene(CurrentScene-1));
+    }
+
+    IEnumerator LoadScene(int index)
+    {
+        StartCoroutine(TransitionOut());
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(index);
+    }
+
+
+    IEnumerator TransitionOut()
+    {
+        for (int i = 0; i < animators.Length; i++)
+        {
+            
+            if(i+1 %3 == 0)
+                yield return new WaitForSeconds(1f);
+            else
+                yield return null;
+            animators[i].Play("Transition_Out");
+        }
+            
     }
 }

@@ -8,7 +8,7 @@ public class RandomPlayer : MonoBehaviour
 
     [SerializeField] private PlayersData data;
     
-    private void Start() 
+    private void Awake() 
     {
         player = Random.Range(0,data.players.Length);
         GameObject playerGO =Instantiate(data.players[player],transform.position,Quaternion.identity,transform);

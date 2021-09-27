@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
 
     #region Components
     public Core Core { get; private set; }
-    public Animator Anim { get; private set; }
+    public Animator Anim { get; protected set; }
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
@@ -22,7 +22,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void Awake()
     {
         Core = GetComponentInChildren<Core>();
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
         particleSystem = GetComponentInChildren<ParticleSystem>();
     }
 }

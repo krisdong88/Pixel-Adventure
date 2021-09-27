@@ -9,6 +9,9 @@ public class Player : Entity
     public PlayerInputHandler InputHandler { get; private set; }
     private ParticleSystem dustPS;
 
+    private int player;
+    [SerializeField] private PlayersData playersData;
+
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
@@ -22,8 +25,12 @@ public class Player : Entity
 
     public override void Awake()
     {
-        base.Awake();
+        player = Random.Range(0,playersData.players.Length);
+        Instantiate(playersData.players[player],transform.position,Quaternion.identity,transform);
 
+
+        base.Awake();
+        
         StateMachine = new FSM();
 
         IdleState = new PlayerIdleState(this, "idle");
